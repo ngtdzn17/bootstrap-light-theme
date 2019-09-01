@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kleidi | Dashboard</title>
+
+    <link href="/assets_custom/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets_custom/css/main.css" rel="stylesheet">
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="/assets_custom/js/noty.js" type="text/javascript"></script>
+    <link href="/assets_custom/css/nest.css" rel="stylesheet">
+    <link href="/assets_custom/css/noty.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    {% include "pages/partials/header.njk" %}
+
+    <main>
+        {% if bundles.length > 0 %}
+            <!-- Display When Bundles are available -->
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <form action="/stripe/checkout" method="post" id="payment-form">
+                    <div class="card mb-4 box-shadow rounded-borders">
+                        <div class="card-header repeating-background">
+                            <img class="key-icon" src="/assets_custom/img/icon.png">
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4 left-text">
+                                <label>Membership</label>
+                                <select class="form-control" name="bundle">
+                                    {% for bundle in bundles %}
+                                        <option value="{{ bundle.billingPlanID }}">
+                                            {{ bundle.title }} ({{ currency.symbol }}{{ bundle.price }})
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </ul>
+                            <ul class="list-unstyled mt-3 mb-4 left-text">
+                                <label>Full Name</label>
+                                <input type="text" class="form-control key-input left-text" name="fullName" id="fullName" placeholder="Johnny Appleseed" required>
+                            </ul>
+                            <ul class="list-unstyled mt-3 mb-4 left-text">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control key-input left-text" name="email" id="email" placeholder="example@domain.com" required>
+                            </ul>
+                            <ul class="list-unstyled mt-3 mb-4 left-text">
+                                <label>Card Number</label>
+                                <div id="card-element"></div>
+                            </ul>
+                            <button type="submit" class="btn btn-lg btn-block btn-lightblue" style="font-weight: 600;" {{ 'disabled' if user == null }}>
+                                {{ 'Purchase' if user else 'You must be signed in to Purchase' }}
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            {% else %}
+                <!-- Display When Sold Out -->
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                    <div class="card mb-4 box-shadow rounded-borders">
+                        <div class="card-header repeating-background">
+                        <img class="key-icon" src="/assets_custom/img/icon.png">
+                        </div>
+                        <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Get instant access within seconds</li>
+                            <li>Manage Payment info on the fly</li>
+                            <li>Transfer keys with ease</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-lightblue" disabled>Currently Sold Out</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+    </main>
+
+    {% include "pages/partials/scripts.njk" %}
+    <script>var publishable_key = {{ publishable_key | dump | safe }};</script>
+    <script src="/assets_custom/js/stripe-checkout.js"></script>
+
+</body>
+
+</html>

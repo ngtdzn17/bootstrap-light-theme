@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kleidi | Dashboard</title>
+
+    <link href="/assets_custom/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets_custom/css/main.css" rel="stylesheet">
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="/assets_custom/js/noty.js" type="text/javascript"></script>
+    <link href="/assets_custom/css/nest.css" rel="stylesheet">
+    <link href="/assets_custom/css/noty.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    {% include "pages/partials/header.njk" %}
+
+   <main>
+        <div class="pricing-header px-3 mx-auto text-center">
+            <div class="card mb-4 box-shadow rounded-borders">
+                <div class="card-header repeating-background">
+                    <img class="pfp" src="https://cdn.discordapp.com/avatars/{{ user.discordID }}/{{ user.avi }}.png" alt="{{ user.username }}"> 
+                    <h4 class="key-icon" style="margin-top: 0px;">Welcome, {{ user.username }}!</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4">
+                    <table class="table" style="margin-bottom: -15px;">
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="text-align: left;">Licence:</th>
+                                <td class="account-detail">
+                                    {{ general.key }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="text-align: left;">Credit:</th>
+                                <td class="account-detail">
+                                    {{ currency.symbol }}{{ general.account_balance }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="text-align: left;">Expires:</th>
+                                <td class="account-detail">
+                                    {{ general.nextBillingDate }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="text-align: left;">Status:</th>
+                                <td class="account-detail">
+                                    {% if (general.status == 'Active' or general.status == 'Trialing') %}
+                                        <p class="active-account">{{ general.status }}</p>
+                                    {% else %}
+                                        <p class="inactive-account">Inactive ({{ general.status }})</p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    </ul>
+                    <div class="row">
+                        <div class="col-6 button-wrapper">
+                            <button type="button" class="btn btn-block btn-lightblue" onclick="location.href ='/dashboard/activate'">Activate</button>
+                        </div>
+                        <div class="col-6 button-wrapper-d">
+                            <button type="button" class="btn btn-block btn-danger" onclick="location.href = '/dashboard/deactivate'">Deactivate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pricing-header px-3 mx-auto text-center">
+            <div class="card mb-4 box-shadow rounded-borders">
+
+                <p class="card-data">
+                    Current Card:
+                    {% if general.customer.sources.data[0].brand %}
+                        {{ general.customer.sources.data[0].brand }} - {{ general.customer.sources.data[0].last4 }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </p>
+
+                <hr/>
+
+                <div class="card-body" style="padding: 0.5rem 1.25rem 1.25rem 1.25rem;">
+                    <form action="/dashboard/profile/update/billing" method="post" id="payment-form" autocomplete="off">
+                        <ul class="list-unstyled mt-3 mb-4 left-text">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control key-input left-text" name="fullName" id="fullName" autocomplete="false" placeholder="Johnny Appleseed" value="{{ general.customer.name }}" required>
+                        </ul>
+                        <ul class="list-unstyled mt-3 mb-4 left-text">
+                            <label>Email Address</label>
+                            <input type="text" class="form-control key-input left-text" name="email" placeholder="example@domain.com" autocomplete="false" value="{{ general.email }}" required>
+                        </ul>
+                        <ul class="list-unstyled mt-3 mb-4 left-text">
+                            <label>Card Number</label>
+                            <div id="card-element"></div>
+                        </ul>
+                        <div class="row">
+                            <div class="col-12 button-wrapper" style="padding-bottom: 10px;">
+                                <button type="button" class="btn btn-block btn-lightblue" id="submit-button" type="submit">Update</button>
+                            </div>
+                            <div class="col-12 button-wrapper-d">
+                                <button type="button" class="btn btn-block btn-danger" onclick="location.href = '/dashboard/cancel'" style="{{ 'opacity: 0.5;pointer-events:none;' if general.cancel_at_period_end == true }}">Cancel Subscription</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    {% include "pages/partials/scripts.njk" %}
+    <script>var publishable_key = {{ publishable_key | dump | safe }};</script>
+    <script src="/assets_custom/js/stripe-dashboard.js"></script>
+
+</body>
+
+</html>

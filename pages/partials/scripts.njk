@@ -1,0 +1,21 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="/assets_custom/js/popper.min.js"></script>
+<script src="/assets_custom/js/bootstrap.min.js"></script>
+{% if messages %}
+    <script>
+        var messages = {{ messages | dump | safe }};
+        if (!Object.keys(messages).length <= 0) {
+            var key = Object.keys(messages)[0];
+            new Noty({
+                type: key,
+                text: messages[key][0],
+                layout: 'bottomRight',
+                theme: 'nest',
+                timeout: '4000',
+                progressBar: true,
+                closeWith: ['click'],
+                killer: true
+            }).show();
+        }
+    </script>
+{% endif %}

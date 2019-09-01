@@ -1,0 +1,160 @@
+html {
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 450px !important;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.repeating-background {
+    background: url(/assets_custom/img/repeating-background.png);
+    color: white;
+    height: 130px;
+    background-repeat: repeat;
+}
+
+.key-icon {
+    height: 60px;
+    margin-top: 20px;
+}
+
+.nav-branding {
+    font-weight: 700!important;
+}
+
+.btn-lightblue {
+    border-color: #5ec0f9 !important;
+    background-color: #5ec0f9 !important;
+    color: white !important;
+}
+
+.rounded-borders {
+    border-radius: 10px;
+}
+
+.sign-in {
+    color: #5ec0f9;
+    border-color: #5ec0f9;
+}
+
+.sign-in:hover {
+    color: #fff;
+    background-color: #5ec0f9;
+    border-color: #5ec0f9;
+}
+
+.text-gray {
+    color: #9ca5ad!important;
+}
+
+.text-gray:hover {
+    color: #000000!important;
+}
+
+.active {
+    color: black !important;
+}
+
+.redeem-container {
+    padding-top: 5px;
+}
+
+.key-input {
+    text-align: center;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #ced4da;;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #FF2952 !important;
+    background: rgba(255, 41, 80, 0.05) !important;
+  }
+  
+  .StripeElement--focus{
+    border: 1px solid #5ec0f9;
+    transition: all ease 200ms;
+    background: transparent;
+    color: #495057;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+  
+  .ElementsApp .Icon-fill{
+    fill: white !important;
+  }
+
+  .left-text {
+    text-align: left;
+  }
+
+  .pfp {
+    height: 70px;
+    padding-top: 5px;
+    border-radius: 40px;
+  }
+
+  .card-data {
+      padding-top: 25px;
+      font-weight: 600;
+  }
+
+  .active-account {
+    color: #4db53f;
+  }
+
+  .inactive-account {
+      color: #ff4a60;
+  }
+
+  .account-detail {
+    width: 500px;
+    font-family: 'Roboto Mono', monospace;
+    padding-bottom: 0px !important;
+  }
