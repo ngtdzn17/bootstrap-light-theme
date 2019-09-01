@@ -1,5 +1,5 @@
 # bootstrap-light-theme
-Bootstrap Light Theme- - A fresh, modern, minimal & lightweight theme for your Kleidi based service.
+Bootstrap Light Theme - A fresh, modern, minimal & lightweight theme for your Kleidi based service.
 
 ![ScreenShot1](https://github.com/kleidi-bot/bootstrap-light-theme/blob/master/assets/screenshots/1.png?raw=true)
 ![ScreenShot2](https://github.com/kleidi-bot/bootstrap-light-theme/blob/master/assets/screenshots/2.png?raw=true)
