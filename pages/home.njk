@@ -23,7 +23,26 @@
     {% include "pages/partials/header.njk" %}
 
     <main>
-        {% if bundles.length > 0 %}
+
+        {% if password %}
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <form action="/unlock" method="post" autocomplete="off">
+                <div class="card mb-4 box-shadow rounded-borders">
+                    <div class="card-header repeating-background">
+                        <img class="key-icon" src="/assets_custom/img/icon.png">
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4 left-text" style="text-align: center;">
+                            <label>Password</label>
+                            <input type="text" class="form-control key-input left-text" name="password" style="text-align: center;" autocomplete="false">
+                        </ul>
+                        <button type="submit" class="btn btn-lg btn-block btn-lightblue" style="font-weight: 600;">Enter</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        {% else %}
+            {% if bundles.length > 0 %}
             <!-- Display When Bundles are available -->
             <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
                 <form action="/stripe/checkout" method="post" id="payment-form">
@@ -79,6 +98,7 @@
                     </div>
                 </div>
             {% endif %}
+        {% endif %}
     </main>
 
     {% include "pages/partials/scripts.njk" %}
