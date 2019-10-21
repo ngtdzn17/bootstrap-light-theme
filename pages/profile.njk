@@ -20,7 +20,7 @@
 
 <body>
 
-    {% include "pages/partials/header.njk" %}
+    {% include "partials_custom/header.njk" %}
 
    <main>
         <div class="pricing-header px-3 mx-auto text-center">
@@ -125,7 +125,7 @@
         </div>
     </main>
 
-    {% include "pages/partials/scripts.njk" %}
+    {% include "partials_custom/scripts.njk" %}
     <script>var publishable_key = {{ publishable_key | dump | safe }};</script>
     <script src="/assets_custom/js/stripe-dashboard.js"></script>
 

@@ -9,6 +9,8 @@ Bootstrap Light Theme - A fresh, modern, minimal & lightweight theme for your Kl
 
 [How to install themes on Kleidi](https://youtu.be/zQtaBhnsqKM)
 
+[Introduction to making themes on Kleidi](https://www.youtube.com/watch?v=GogVNxb3UlU)
+
 [Getting Started with Nunjucks](https://mozilla.github.io/nunjucks/getting-started.html)
 
 

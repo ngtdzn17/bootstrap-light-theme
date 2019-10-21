@@ -20,7 +20,7 @@
 
 <body>
 
-    {% include "pages/partials/header.njk" %}
+    {% include "partials_custom/header.njk" %}
 
     <main>
 
@@ -105,7 +105,7 @@
         {% endif %}
     </main>
 
-    {% include "pages/partials/scripts.njk" %}
+    {% include "partials_custom/scripts.njk" %}
     <script>var publishable_key = {{ publishable_key | dump | safe }};</script>
     <script src="/assets_custom/js/stripe-checkout.js"></script>
 
