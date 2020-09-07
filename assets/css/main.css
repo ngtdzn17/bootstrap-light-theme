@@ -25,11 +25,11 @@ a:hover {
 }
 
 .border-top {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #F6861F;
 }
 
 .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #F6861F;
 }
 
 .box-shadow {
@@ -53,8 +53,8 @@ a:hover {
 }
 
 .btn-lightblue {
-    border-color: #5ec0f9 !important;
-    background-color: #5ec0f9 !important;
+    border-color: #F6861F !important;
+    background-color: #F6861F !important;
     color: white !important;
 }
 
@@ -63,18 +63,18 @@ a:hover {
 }
 
 .sign-in {
-    color: #5ec0f9;
-    border-color: #5ec0f9;
+    color: #ffc02b;
+    border-color: #F6861F;
 }
 
 .sign-in:hover {
     color: #fff;
-    background-color: #5ec0f9;
-    border-color: #5ec0f9;
+    background-color: #F6861F;
+    border-color: #F6861F;
 }
 
 .text-gray {
-    color: #9ca5ad!important;
+    color: #ada79c!important;
 }
 
 .text-gray:hover {
@@ -94,7 +94,7 @@ a:hover {
 }
 
 .form-control:focus {
-    color: #495057;
+    color: #523d21;
     background-color: #fff;
     border-color: none;
     outline: 0;
@@ -107,25 +107,25 @@ a:hover {
     padding: 10px 12px;
     border-radius: 4px;
     background: rgba(255,255,255,0.05);
-    border: 1px solid #ced4da;;
+    border: 1px solid #deccb4;;
   }
-  
+
   .StripeElement--invalid {
     border-color: #FF2952 !important;
-    background: rgba(255, 41, 80, 0.05) !important;
+    background: rgba(255, 165, 0, 0.05) !important;
   }
-  
+
   .StripeElement--focus{
     border: 1px solid #5ec0f9;
     transition: all ease 200ms;
     background: transparent;
     color: #495057;
   }
-  
+
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
-  
+
   .ElementsApp .Icon-fill{
     fill: white !important;
   }
@@ -146,7 +146,7 @@ a:hover {
   }
 
   .active-account {
-    color: #4db53f;
+    color: #3df26d;
   }
 
   .inactive-account {
